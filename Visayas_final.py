@@ -81,5 +81,3 @@ if __name__ == '__main__':
         infoArray, rows, columns = getData()
     processData(infoArray, rows, columns)
     print("\n\n\nFinished Execution.")
-#df = pd.DataFrame(columns=[s.text for s in columns_names])
-#df.to_csv('Visayas.csv')
