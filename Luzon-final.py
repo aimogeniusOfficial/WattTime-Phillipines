@@ -4,13 +4,24 @@ import time
 import pandas as pd #to read excel file
 # from selenium.webdriver.common.keys import Keys
 
-#initials:
+#Initialize variables:
 
+#===================================================================#
+
+#Resulting array of all the data from the table
 column_info = []
+
+#Table dimensions
 rows = 0
 columns = 0
 
+#===================================================================#
+
+#Function to obtain data from the website
 def getData():
+
+    #initialize driver:
+
     website = 'https://www.ngcp.ph/operations#situation'
 
     #user agent
@@ -24,7 +35,9 @@ def getData():
     path = './chromedriver.exe'
     driver = webdriver.Chrome(path, options = options)
 
+    #Processing:
     try:
+        #Click on the "Weekly Outlook" button
         url = driver.get(url = website)
         time.sleep(2)
         weekly_button = driver.find_element_by_xpath('//div[@id="carousel-operation-body"]/div/div[@class="item active"]/ul/li[3]/span')
@@ -34,20 +47,23 @@ def getData():
     except Exception as ex:
         print(ex)
 
-
+    #Get data from the website
     columns_names = driver.find_elements_by_xpath ('//table[@id="table-WeeklyLuzon"]/tbody/tr/td')
+    #Get dimensions
     rows = len(driver.find_elements_by_xpath('//table[@id="table-WeeklyLuzon"]/tbody/tr'))
     columns = len(driver.find_elements_by_xpath('//table[@id="table-WeeklyLuzon"]/tbody/tr[2]/td'))
 
-
+    #Convert columns_names from html element to text and write it into an array
     for i in columns_names:
         column_info.append(i.text)
     
+    #quit
     driver.quit()
     return column_info, rows, columns
 
+#Process column_info
 def processData(infoArray, rows, columns):
-    
+    #Create a dict for pandas
     mw =  [infoArray [columns * i] for i in range(rows - 1)]
     thu = [infoArray [columns*i + 1] for i in range (rows - 1)]
     fri = [infoArray [columns*i + 2] for i in range (rows - 1)]
@@ -58,23 +74,28 @@ def processData(infoArray, rows, columns):
     wed = [infoArray [columns*i + 7] for i in range (rows - 1)]
 
     dict = {
-        'MW': mw,
-        'THU': thu,
-        'FRI': fri,
-        'SAT': sat,
-        'SUN': sun,
-        'MON': mon,
-        'TUE': tue,
-        'WED': wed
+        mw[0]: mw[1:],
+        thu[0]: thu[1:],
+        fri[0]: fri[1:],
+        sat[0]: sat[1:],
+        sun[0]: sun[1:],
+        mon[0]: mon[1:],
+        tue[0]: tue[1:],
+        wed[0]: wed[1:]
     }
 
+    #Create a pandas DataFrame
     df = pd.DataFrame(dict)
+    #Convert to csv
     df.to_csv ('Luzon.csv')
 
-
+#Execution
 if __name__ == '__main__':
     print("Starting the Program...\n\n\n")
+    #Until the program gives a result...
     while column_info == []:
+        #Get data
         infoArray, rows, columns = getData()
+    #And then Process the Data
     processData(infoArray, rows, columns)
     print("\n\n\nFinished Execution.")
