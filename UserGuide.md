@@ -5,11 +5,11 @@
 
 First, let's start with the imports. You will need:
 
-<i>from selenium import webdriver
+    from selenium import webdriver
 
-import time
+    import time
 
-import pandas as pd</i>
+    import pandas as pd
 
 
 Check out any necessary documentation on how to install Selenium and Pandas at: https://selenium-python.readthedocs.io/getting-started.html and https://pandas.pydata.org/docs/getting_started/index.html respectively.
@@ -18,16 +18,15 @@ Check out any necessary documentation on how to install Selenium and Pandas at: 
 
 # Initialize variables:
 
-<i> #Resulting array of all the data from the table
+    #Resulting array of all the data from the table
   
-column_info = []
+    column_info = []
 
-#Table dimensions
+    #Table dimensions
   
-rows = 0
+    rows = 0
   
-columns = 0
-  </i>
+    columns = 0
  
 Here, I have initialized three variables. <b>Column_info</b> is an array, where I intend to save the data that will be parsed; while <b>rows</b> and <b>columns</b> will account for the dimensions of the parsed table in order to recreate it using pandas.
 
