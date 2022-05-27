@@ -99,7 +99,7 @@ Here, I have initialized three variables. <b>Column_info</b> is an array, where 
   Here, we actually open our webdriver. We make him open the website <i>(url=website)</i>, then we make him click on the Weekly Button. If we want the data from Luzon, we stop right here,
   but if we need Visayas, we also click on the Visayas button. I added the delay of 2-5 seconds in order for browser to properly load.
   
-  # Scrape the data
+  <h3>Scrape the data</h3>
   
 
     columns_names = driver.find_elements_by_xpath ('//table[@id="table-WeeklyVisayas"]/tbody/tr/td')
@@ -112,14 +112,14 @@ Here, I have initialized three variables. <b>Column_info</b> is an array, where 
   In these lines, we scrape all the data from the data into a columns_names variable, and the dimensions of the table into rows and columns. <b>NOTE:</b> the variable 
   columns_names contains the data in HTML format, which we will process in the next step.
   
-  # Process columns_names:
+  <h3>Process columns_names:</h3>
   
     for i in columns_names:
         column_info.append(i.text)
     
   Here, we put all the data from columns_names into columns_info, transforming the html element into the text.
   
-  #Quitting
+  <h3>Quitting</h3>
     
     driver.quit()
     return column_info, rows, columns
