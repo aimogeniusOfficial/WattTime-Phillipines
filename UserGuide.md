@@ -60,7 +60,7 @@ Here, I have initialized three variables. <b>Column_info</b> is an array, where 
   <h3> The code above sets up the Selenium Webdriver to automatically open Chrome. </h3>
   
   We add website and user-agent in order to avoid CAPTCHA. Also, you need to install Google Chrome Driver from  https://chromedriver.chromium.org/downloads. Install the <b>appropriate</b> version of chromedriver in order for the program to work.
-  Your path to chromedriver.exe you should put into the <b><i>PATH</i></b> and replace current path with it.
+  Your path to chromedriver.exe you should put into the <b><i>PATH</i></b> variable and replace current path with it.
   
   <h3> Getting to the table. </h3>
   
