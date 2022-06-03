@@ -11,6 +11,9 @@ First, let's start with the imports. You will need:
 
     import pandas as pd
 
+To install those dependencies, use in your local command line:
+
+    pip install -r requirements.txt
 
 Check out any necessary documentation on how to install Selenium and Pandas at: https://selenium-python.readthedocs.io/getting-started.html and https://pandas.pydata.org/docs/getting_started/index.html respectively.
 
