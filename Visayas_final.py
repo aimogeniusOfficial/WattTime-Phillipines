@@ -94,12 +94,11 @@ def processData(infoArray, rows, columns):
     df.to_csv ('Luzon.csv')
 
 #Execution
-if __name__ == '__main__':
-    print("Starting the Program...\n\n\n")
+def scrapeLuzonPhilippines():
     #Until the program gives a result...
     while column_info == []:
         #Get data
         infoArray, rows, columns = getData()
     #And then Process the Data
-    processData(infoArray, rows, columns)
-    print("\n\n\nFinished Execution.")
+    finaldf = processData(infoArray, rows, columns)
+    return finaldf
