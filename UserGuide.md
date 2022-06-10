@@ -167,8 +167,7 @@ Here, I have initialized three variables. <b>Column_info</b> is an array, where 
   
     #Create a pandas DataFrame
     df = pd.DataFrame(dict)
-    #Convert to csv
-    df.to_csv ('Luzon.csv')
+    
   
   Pretty straightforward.
   
