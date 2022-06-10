@@ -173,19 +173,24 @@ Here, I have initialized three variables. <b>Column_info</b> is an array, where 
   Pretty straightforward.
   
   # Execution
-  
+    
     #Execution
-    if __name__ == '__main__':
-      print("Starting the Program...\n\n\n")
-      #Until the program gives a result...
-      while column_info == []:
+    def scrapeLuzonPhilippines():
+    #Until the program gives a result...
+    while column_info == []:
         #Get data
         infoArray, rows, columns = getData()
-      #And then Process the Data
-      processData(infoArray, rows, columns)
-      print("\n\n\nFinished Execution.")
+    #And then Process the Data
+    finaldf = processData(infoArray, rows, columns)
+    return finaldf
 
-  Here, we make the program repeat until we get our CSV file.
+  Use the function above in order to obtain the final DataFrame of scraped data. Import this function in your code by:
+    
+    import scrapeLuzonPhilippines from './Luzon-final.py/' 
+  
+  OR:
+  
+    import scrapeVisayasPhilippines from './Visayas-final.py/'
   
   <h3>Thank you!</h3>
 
