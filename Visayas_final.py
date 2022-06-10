@@ -94,7 +94,7 @@ def processData(infoArray, rows, columns):
     df.to_csv ('Luzon.csv')
 
 #Execution
-def scrapeLuzonPhilippines():
+def scrapeVisayasPhilippines():
     #Until the program gives a result...
     while column_info == []:
         #Get data
